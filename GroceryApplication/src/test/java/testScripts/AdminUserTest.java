@@ -9,6 +9,7 @@ import pages.AdminUserPage;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
+import utilities.FakerUtility;
 
 public class AdminUserTest extends Base{
 
@@ -17,8 +18,9 @@ public class AdminUserTest extends Base{
 	{
 		String usernamevalue = ExcelUtility.getStringData(0, 0, "LoginPage");
 		String passwordvalue = ExcelUtility.getStringData(0, 1, "LoginPage");
-		String newusername = ExcelUtility.getUserName(0, 0, "UserName");
-		String passwordnewuser = ExcelUtility.getUserName(0, 1, "UserName");
+		FakerUtility faker = new FakerUtility();
+		String newusername = faker.createRandomUserName();
+		String passwordnewuser = faker.createRandomPassword();
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameInUsernameField(usernamevalue);
 		login.enterPasswordInPasswordField(passwordvalue);
@@ -36,7 +38,7 @@ public class AdminUserTest extends Base{
 	public void verifyNewlyAddedUserSearch() throws IOException
 	{
 		String usernamevalue = ExcelUtility.getStringData(0, 0, "LoginPage");
-		String passwordvalue = ExcelUtility.getStringData(0, 1, "LoginPage");
+		String passwordvalue = ExcelUtility.getStringData(0, 1, "LoginPage");	
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameInUsernameField(usernamevalue);
 		login.enterPasswordInPasswordField(passwordvalue);
@@ -44,8 +46,8 @@ public class AdminUserTest extends Base{
 		HomePage home = new HomePage(driver);
 		home.adminMoreInfo();
 		AdminUserPage adminuser = new AdminUserPage(driver);
-		adminuser.searchUser();
-		String newusername = ExcelUtility.getUserName(0, 0, "UserName");
+		adminuser.searchUser();	
+		String newusername = ExcelUtility.getStringData(0, 0, "UserName");
 		adminuser.enterUserNameForSearch(newusername);
 		adminuser.selectUserTypeForSearch();
 		adminuser.clickSearch();
@@ -63,7 +65,7 @@ public class AdminUserTest extends Base{
 		home.adminMoreInfo();
 		AdminUserPage adminuser = new AdminUserPage(driver);
 		adminuser.searchUser();
-		String newusername = ExcelUtility.getUserName(0, 0, "UserName");
+		String newusername = ExcelUtility.getStringData(0, 0, "UserName");
 		adminuser.enterUserNameForSearch(newusername);
 		adminuser.selectUserTypeForSearch();
 		adminuser.clickSearch();
