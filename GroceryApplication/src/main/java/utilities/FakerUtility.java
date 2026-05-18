@@ -12,4 +12,16 @@ public class FakerUtility {
 	{
 		return faker.internet().password();
 	}
+	public String createRandomEmail()
+	{
+		return faker.internet().emailAddress(); 	
+	}
+	public String createRandomName()
+	{
+		return faker.name().fullName();
+	}
+	public String createRandomAddress()
+	{
+		return faker.address().fullAddress();
+	}
 }

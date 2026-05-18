@@ -15,16 +15,7 @@ public class ExcelUtility {
 	
 	public static String getStringData(int a , int b, String sheet) throws IOException
 	{
-		f = new FileInputStream ("C:\\Users\\MANU SANKAR\\git\\AutomationSelenium\\DemoProject\\src\\test\\resources\\TestData.xlsx");
-		w = new XSSFWorkbook(f);
-		s = w.getSheet(sheet);
-		XSSFRow r = s.getRow(a);
-		XSSFCell c = r.getCell(b);
-		return c.getStringCellValue();
-	}
-	public static String getUserName(int a , int b, String sheet) throws IOException
-	{
-		f = new FileInputStream ("C:\\Users\\MANU SANKAR\\git\\AutomationSelenium\\GroceryApplication\\src\\test\\resources\\Userlogin.xlsx");
+		f = new FileInputStream ("C:\\Users\\MANU SANKAR\\git\\AutomationSelenium\\GroceryApplication\\src\\test\\resources\\TestData.xlsx");
 		w = new XSSFWorkbook(f);
 		s = w.getSheet(sheet);
 		XSSFRow r = s.getRow(a);
@@ -33,7 +24,7 @@ public class ExcelUtility {
 	}
 	public static int getIntegerData(int a, int b, String sheet) throws IOException
 	{
-		f = new FileInputStream ("C:\\Users\\MANU SANKAR\\git\\AutomationSelenium\\SeleniumAutomation\\src\\test\\resources\\TestData.xlsx");
+		f = new FileInputStream ("C:\\Users\\MANU SANKAR\\git\\AutomationSelenium\\GroceryApplication\\src\\test\\resources\\TestData.xlsx");
 		w = new XSSFWorkbook(f);
 		s = w.getSheet(sheet);
 		XSSFRow r = s.getRow(a);
